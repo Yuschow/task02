@@ -48,4 +48,12 @@ func main() {
 		EmployeeID: "0001",
 	}
 	emp.Printlnfo()
+	// producer
+	ch := make(chan int)
+	go producer(ch)
+	comsumer(ch)
+	// producerBuffer
+	chBuffer := make(chan int, 5)
+	go producerBuffer(chBuffer)
+	comsumerBuffer(chBuffer)
 }
