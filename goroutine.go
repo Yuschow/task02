@@ -40,5 +40,5 @@ func runTask(tasks []func()) {
 		go worker(i, t, &wg)
 	}
 	wg.Wait()
-	fmt.Printf("All Task Done!")
+	fmt.Printf("All Task Done!\n")
 }

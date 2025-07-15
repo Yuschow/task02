@@ -30,4 +30,22 @@ func main() {
 		func() { time.Sleep(4 * time.Second) },
 	}
 	runTask(tasks)
+
+	// Rectangle
+	fmt.Printf("\nRectangle:\n")
+	rect := Rectangle{3, 4}
+	PrintShapeInfo(rect)
+
+	// Circle
+	fmt.Printf("\nCircle:\n")
+	circle := Circle{3}
+	PrintShapeInfo(circle)
+
+	// Employee
+	fmt.Printf("\nEmployee:\n")
+	emp := Employee{
+		Person:     Person{"jack", 25},
+		EmployeeID: "0001",
+	}
+	emp.Printlnfo()
 }
