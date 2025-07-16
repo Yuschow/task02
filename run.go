@@ -56,4 +56,22 @@ func main() {
 	chBuffer := make(chan int, 5)
 	go producerBuffer(chBuffer)
 	comsumerBuffer(chBuffer)
+	// add
+	x := 0
+	var mu sync.Mutex
+	wg.Add(10)
+	for range 10 {
+		go add(&x, &wg, &mu)
+	}
+	wg.Wait()
+	fmt.Printf("x: %d\n", x)
+
+	//addAtomic
+	wg.Add(10)
+	var y int64 = 0
+	for range 10 {
+		go addAtomic(&y, &wg)
+	}
+	wg.Wait()
+	fmt.Printf("y: %d\n", y)
 }
